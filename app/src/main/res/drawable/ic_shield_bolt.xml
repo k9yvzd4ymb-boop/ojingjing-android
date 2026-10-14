@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 后台守护与安全盾牌矢量图标 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- 盾牌外廓：香槟金 -->
+    <path
+        android:fillColor="#DFBA6B"
+        android:pathData="M12,2 L4,5.5 v6.2 c0,5.1 3.4,9.9 8,11.3 c4.6,-1.4 8,-6.2 8,-11.3 V5.5 L12,2 z" />
+
+    <!-- 盾国内嵌深曜底：晶曜石 -->
+    <path
+        android:fillColor="#101622"
+        android:pathData="M12,3.8 L5.6,6.6 v5.1 c0,4.2 2.7,8.2 6.4,9.4 c3.7,-1.2 6.4,-5.2 6.4,-9.4 V6.6 L12,3.8 z" />
+
+    <!-- 核心能量闪电：流金与翡翠绿微光 -->
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M13,6.5 L8.5,12.5 h3.2 L10.5,18 L16,11.8 h-3.2 L14.5,6.5 z" />
+</vector>

@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 次操作按钮：冷曜半透晶石底 + 0.75dp 细香槟金发丝边框 + 按下微金水波 -->
+<!-- 毛玻璃按键质感：深曜晶石磨砂基底 + 1.2dp 香槟金光泽发丝微边 + 触控流金光晕 -->
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="#26DFBA6B">
+    android:color="#33DFBA6B">
     <item android:id="@android:id/mask">
         <shape android:shape="rectangle">
-            <corners android:radius="18dp" />
+            <corners android:radius="16dp" />
             <solid android:color="#FFFFFF" />
         </shape>
     </item>
     <item>
-        <shape android:shape="rectangle">
-            <corners android:radius="18dp" />
-            <solid android:color="#8C131A24" />
-            <stroke
-                android:width="1dp"
-                android:color="#4DDFBA6B" />
-        </shape>
+        <layer-list>
+            <!-- 1. 磨砂亚克力微透光层：高通透深曜石渐变，有效阻隔杂光，确保文字极致清晰 -->
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="16dp" />
+                    <gradient
+                        android:angle="270"
+                        android:startColor="#B31A2536"
+                        android:centerColor="#C7121A26"
+                        android:endColor="#D90C121A"
+                        android:type="linear" />
+                </shape>
+            </item>
+            <!-- 2. 毛玻璃漫反射外轮廓光圈 -->
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="16dp" />
+                    <stroke
+                        android:width="1.2dp"
+                        android:color="#40DFBA6B" />
+                </shape>
+            </item>
+        </layer-list>
     </item>
 </ripple>

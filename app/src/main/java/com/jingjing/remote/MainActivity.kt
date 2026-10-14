@@ -2,6 +2,7 @@ package com.jingjing.remote
 
 import android.Manifest
 import android.app.Dialog
+import android.content.res.ColorStateList
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
@@ -13,6 +14,8 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.PowerManager
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +31,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
@@ -58,6 +62,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var historyContainer: LinearLayout
     private lateinit var tvEmpty: TextView
+    private lateinit var btnKeepAlive: View
+    private lateinit var tvKeepAliveStatus: TextView
+    private lateinit var tvKeepAliveSub: TextView
+    private lateinit var dotKeepAlive: View
 
     private val scanLauncher = registerForActivityResult(ScanContract()) { result ->
         val content = result.contents
@@ -93,6 +101,10 @@ class MainActivity : AppCompatActivity() {
 
         historyContainer = findViewById(R.id.historyContainer)
         tvEmpty = findViewById(R.id.tvEmpty)
+        btnKeepAlive = findViewById(R.id.btnKeepAlive)
+        tvKeepAliveStatus = findViewById(R.id.tvKeepAliveStatus)
+        tvKeepAliveSub = findViewById(R.id.tvKeepAliveSub)
+        dotKeepAlive = findViewById(R.id.dotKeepAlive)
 
         findViewById<View>(R.id.btnScan).setOnClickListener {
             scanLauncher.launch(
@@ -105,6 +117,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<View>(R.id.btnManual).setOnClickListener { v -> showManualDialog(v) }
+        btnKeepAlive.setOnClickListener { v -> showKeepAliveDialog(v) }
 
         askNotificationPermission()
     }
@@ -127,6 +140,7 @@ class MainActivity : AppCompatActivity() {
         migrateStoredUrls()
         autoPruneStale()
         renderDevices()
+        updateKeepAliveUI()
     }
 
     /** 自动清理：服务器端凭据早已过期的记录（空闲 30 天 + 3 天宽限）直接删掉。 */
@@ -401,6 +415,97 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE or
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE
         )
+    }
+
+    // ---------- 后台守护与电池优化管理 ----------
+
+    private fun updateKeepAliveUI() {
+        val enabled = ConnectionStore.keepAlive
+        val pm = getSystemService(Context.POWER_SERVICE) as? PowerManager
+        val isBatteryIgnored = pm?.isIgnoringBatteryOptimizations(packageName) == true
+
+        if (enabled) {
+            tvKeepAliveStatus.text = "开启"
+            tvKeepAliveStatus.setTextColor(ContextCompat.getColor(this, R.color.status_green))
+            dotKeepAlive.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.status_green))
+            tvKeepAliveSub.text = if (isBatteryIgnored) "防休眠 · 电池优化已忽略" else "防休眠 · 建议加白名单"
+            tvKeepAliveSub.setTextColor(
+                ContextCompat.getColor(this, if (isBatteryIgnored) R.color.ink_muted else R.color.gold_primary)
+            )
+        } else {
+            tvKeepAliveStatus.text = "关闭"
+            tvKeepAliveStatus.setTextColor(ContextCompat.getColor(this, R.color.ink_muted))
+            dotKeepAlive.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.hint))
+            tvKeepAliveSub.text = "已暂停 · 点击开启守护"
+            tvKeepAliveSub.setTextColor(ContextCompat.getColor(this, R.color.ink_muted))
+        }
+    }
+
+    private fun showKeepAliveDialog(origin: View? = null) {
+        val view = LayoutInflater.from(this).inflate(R.layout.dialog_keepalive, null)
+        val swKeepAlive = view.findViewById<SwitchCompat>(R.id.swKeepAlive)
+        val tvBatteryStatus = view.findViewById<TextView>(R.id.tvBatteryStatus)
+        val btnBatteryOpt = view.findViewById<View>(R.id.btnBatteryOpt)
+        val btnClose = view.findViewById<View>(R.id.btnClose)
+
+        val dialog = glassDialog(view, origin)
+
+        fun refreshDialogState() {
+            swKeepAlive.isChecked = ConnectionStore.keepAlive
+            val pm = getSystemService(Context.POWER_SERVICE) as? PowerManager
+            val isIgnored = pm?.isIgnoringBatteryOptimizations(packageName) == true
+            if (isIgnored) {
+                tvBatteryStatus.text = "已加入白名单（不受休眠限制）"
+                tvBatteryStatus.setTextColor(ContextCompat.getColor(this, R.color.status_green))
+                btnBatteryOpt.visibility = View.GONE
+            } else {
+                tvBatteryStatus.text = "未加入白名单（锁屏可能掉线）"
+                tvBatteryStatus.setTextColor(ContextCompat.getColor(this, R.color.gold_primary))
+                btnBatteryOpt.visibility = View.VISIBLE
+            }
+        }
+
+        swKeepAlive.setOnCheckedChangeListener { _, isChecked ->
+            ConnectionStore.keepAlive = isChecked
+            updateKeepAliveUI()
+            if (isChecked) {
+                toast("后台守护已开启")
+                val pm = getSystemService(Context.POWER_SERVICE) as? PowerManager
+                if (pm?.isIgnoringBatteryOptimizations(packageName) != true) {
+                    requestBatteryExemption()
+                }
+            } else {
+                KeepAliveService.stop(this)
+                toast("后台守护已关闭")
+            }
+            refreshDialogState()
+        }
+
+        btnBatteryOpt.setOnClickListener {
+            requestBatteryExemption()
+        }
+
+        btnClose.setOnClickListener { dialog.dismiss() }
+
+        refreshDialogState()
+        dialog.show()
+    }
+
+    private fun requestBatteryExemption() {
+        try {
+            startActivity(
+                Intent(
+                    Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
+                    Uri.parse("package:$packageName")
+                )
+            )
+        } catch (e: Exception) {
+            try {
+                startActivity(Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
+            } catch (t: Throwable) {
+                toast("请在系统设置-电池中允许后台无限制运行")
+            }
+        }
     }
 
     // ---------- 通用工具 ----------

@@ -1,37 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 电脑图标：黑曜钛金与香槟流金奢雅造型 -->
+<!-- 电脑设备图标：极简超窄边框 Pro 工作站 + 晶曜屏幕 + 终端流光指示 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="48dp"
     android:height="48dp"
     android:viewportWidth="48"
     android:viewportHeight="48">
 
-    <!-- 显示器外壳：香槟流金 -->
+    <!-- 1. 悬浮显示器外框：超薄香槟金钛金属微边框 -->
     <path
         android:fillColor="#DFBA6B"
-        android:pathData="M8,7 h32 a4,4 0 0 1 4,4 v18 a4,4 0 0 1 -4,4 H8 a4,4 0 0 1 -4,-4 V11 a4,4 0 0 1 4,-4 z" />
+        android:pathData="M6,7 h36 a3,3 0 0 1 3,3 v22 a3,3 0 0 1 -3,3 H6 a3,3 0 0 1 -3,-3 V10 a3,3 0 0 1 3,-3 z" />
 
-    <!-- 屏幕：深曜石晶体 -->
+    <!-- 2. 显示屏内嵌：深曜极夜高透黑晶玻璃 (微下沉 1.5dp) -->
     <path
-        android:fillColor="#121822"
-        android:pathData="M9,11 h30 a2.5,2.5 0 0 1 2.5,2.5 v11 a2.5,2.5 0 0 1 -2.5,2.5 H9 a2.5,2.5 0 0 1 -2.5,-2.5 v-11 A2.5,2.5 0 0 1 9,11 z" />
+        android:fillColor="#0D131D"
+        android:pathData="M7.5,8.5 h33 a1.5,1.5 0 0 1 1.5,1.5 v19 a1.5,1.5 0 0 1 -1.5,1.5 h-33 a1.5,1.5 0 0 1 -1.5,-1.5 v-19 a1.5,1.5 0 0 1 1.5,-1.5 z" />
 
-    <!-- 屏幕内容代码条纹：香槟微光 -->
-    <path
-        android:fillColor="#F5E5BF"
-        android:pathData="M11,14 h13 a1,1 0 0 1 1,1 v1.6 a1,1 0 0 1 -1,1 H11 a1,1 0 0 1 -1,-1 V15 a1,1 0 0 1 1,-1 z" />
+    <!-- 3. 屏幕顶部终端控制点（左上角微型三色视窗微孔） -->
     <path
         android:fillColor="#DFBA6B"
-        android:pathData="M11,19.4 h20 a1,1 0 0 1 1,1 v1.6 a1,1 0 0 1 -1,1 H11 a1,1 0 0 1 -1,-1 v-1.6 a1,1 0 0 1 1,-1 z" />
+        android:pathData="M11,11.5 a1,1 0 1,0 2,0 a1,1 0 1,0 -2,0" />
     <path
-        android:fillColor="#B88E3E"
-        android:pathData="M11,24.8 h12 a1,1 0 0 1 1,1 v1.6 a1,1 0 0 1 -1,1 H11 a1,1 0 0 1 -1,-1 v-1.6 a1,1 0 0 1 1,-1 z" />
+        android:fillColor="#9AA8B8"
+        android:pathData="M14.5,11.5 a1,1 0 1,0 2,0 a1,1 0 1,0 -2,0" />
+    <path
+        android:fillColor="#5C6978"
+        android:pathData="M18,11.5 a1,1 0 1,0 2,0 a1,1 0 1,0 -2,0" />
 
-    <!-- 支架：金铜钛合金 -->
+    <!-- 4. 终端提示符与代码波束（高科技 DSH 远控交互界面） -->
+    <!-- 命令行箭头 > -->
+    <path
+        android:strokeColor="#F5E5BF"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M11.5,18 L15,21.5 L11.5,25" />
+
+    <!-- 正在运行的代码波流 1 -->
+    <path
+        android:strokeColor="#DFBA6B"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M19,19 H35" />
+
+    <!-- 正在运行的代码波流 2（带动态下划线光标） -->
+    <path
+        android:strokeColor="#B88E3E"
+        android:strokeWidth="1.5"
+        android:strokeLineCap="round"
+        android:pathData="M19,23.5 H28" />
+
+    <!-- 终端呼吸光标：翡翠绿微光点 -->
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M30,22.5 h3 v2 h-3 z" />
+
+    <!-- 5. 极简悬浮支柱颈部：优雅垂直香槟金金属立柱 -->
     <path
         android:fillColor="#B88E3E"
-        android:pathData="M21,33 h6 a1,1 0 0 1 1,1 v3 h-8 v-3 a1,1 0 0 1 1,-1 z" />
+        android:pathData="M22.5,35 h3 v3.5 h-3 z" />
+
+    <!-- 6. 铝合金超薄底座：现代 Studio Display 风格微弧纤薄底板 -->
     <path
-        android:fillColor="#785B20"
-        android:pathData="M14,37 h20 a3,3 0 0 1 3,3 v1 H11 v-1 a3,3 0 0 1 3,-3 z" />
+        android:fillColor="#DFBA6B"
+        android:pathData="M13,38.5 h22 a1.5,1.5 0 0 1 1.5,1.5 v0.5 a0.8,0.8 0 0 1 -0.8,0.8 H12.3 a0.8,0.8 0 0 1 -0.8,-0.8 v-0.5 a1.5,1.5 0 0 1 1.5,-1.5 z" />
+
+    <!-- 7. 屏幕底边状态呼吸微灯 -->
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M23.2,32 h1.6 v0.8 h-1.6 z" />
 </vector>
