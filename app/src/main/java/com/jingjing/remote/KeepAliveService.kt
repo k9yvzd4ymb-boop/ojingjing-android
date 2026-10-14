@@ -67,6 +67,7 @@ class KeepAliveService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         if (intent?.action == ACTION_STOP) {
+            ConnectionStore.keepAlive = false
             stopSelf()
             return START_NOT_STICKY
         }
@@ -93,13 +94,13 @@ class KeepAliveService : Service() {
         )
 
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle(label.ifEmpty { getString(R.string.notif_title) })
-            .setContentText(getString(R.string.notif_text))
+            .setContentTitle(label.ifEmpty { "哦鲸鲸 · 后台守护中" })
+            .setContentText("已启用浅度唤醒与网络保持，防止系统休眠断连")
             .setSmallIcon(android.R.drawable.stat_sys_upload_done)
             .setOngoing(true)
             .setOnlyAlertOnce(true)
             .setContentIntent(pi)
-            .addAction(0, "断开", stopPi)
+            .addAction(0, "停止守护", stopPi)
             .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
             .build()
     }

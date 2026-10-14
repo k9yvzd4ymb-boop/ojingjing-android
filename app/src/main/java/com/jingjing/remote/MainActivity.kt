@@ -68,6 +68,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var dotKeepAlive: View
 
     private val scanLauncher = registerForActivityResult(ScanContract()) { result ->
+        if (result.originalIntent?.getBooleanExtra("OPEN_MANUAL", false) == true) {
+            showManualDialog(null)
+            return@registerForActivityResult
+        }
         val content = result.contents
         if (content.isNullOrBlank()) return@registerForActivityResult
         val url = normalizeUrl(content)
@@ -107,13 +111,14 @@ class MainActivity : AppCompatActivity() {
         dotKeepAlive = findViewById(R.id.dotKeepAlive)
 
         findViewById<View>(R.id.btnScan).setOnClickListener {
-            scanLauncher.launch(
-                ScanOptions()
-                    .setDesiredBarcodeFormats(ScanOptions.QR_CODE)
-                    .setPrompt(getString(R.string.scan_hint))
-                    .setBeepEnabled(false)
-                    .setOrientationLocked(true)
-            )
+            val options = ScanOptions().apply {
+                setCaptureActivity(CustomScanActivity::class.java)
+                setDesiredBarcodeFormats(ScanOptions.QR_CODE)
+                setPrompt("")
+                setBeepEnabled(false)
+                setOrientationLocked(true)
+            }
+            scanLauncher.launch(options)
         }
 
         findViewById<View>(R.id.btnManual).setOnClickListener { v -> showManualDialog(v) }
@@ -141,6 +146,9 @@ class MainActivity : AppCompatActivity() {
         autoPruneStale()
         renderDevices()
         updateKeepAliveUI()
+        if (ConnectionStore.keepAlive) {
+            KeepAliveService.start(this, "哦鲸鲸 · 后台守护中")
+        }
     }
 
     /** 自动清理：服务器端凭据早已过期的记录（空闲 30 天 + 3 天宽限）直接删掉。 */
@@ -469,14 +477,15 @@ class MainActivity : AppCompatActivity() {
             ConnectionStore.keepAlive = isChecked
             updateKeepAliveUI()
             if (isChecked) {
-                toast("后台守护已开启")
+                KeepAliveService.start(this, "哦鲸鲸 · 后台守护中")
+                toast("后台守护已开启，常驻服务已启动")
                 val pm = getSystemService(Context.POWER_SERVICE) as? PowerManager
                 if (pm?.isIgnoringBatteryOptimizations(packageName) != true) {
                     requestBatteryExemption()
                 }
             } else {
                 KeepAliveService.stop(this)
-                toast("后台守护已关闭")
+                toast("后台守护已关闭，常驻服务已停止")
             }
             refreshDialogState()
         }

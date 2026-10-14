@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 手电筒照明矢量图标 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 手电筒把手与灯头 -->
+    <path
+        android:fillColor="#DFBA6B"
+        android:pathData="M6,2 h12 v3 l-3,4 v13 a1,1 0 0 1 -1,1 H10 a1,1 0 0 1 -1,-1 V9 L6,5 V2 z" />
+    <!-- 灯头发光切面 -->
+    <path
+        android:fillColor="#101622"
+        android:pathData="M8,4 h8 v1 H8 z" />
+    <!-- 电源按钮开关 -->
+    <path
+        android:fillColor="#34D399"
+        android:pathData="M11,12 h2 v3 h-2 z" />
+</vector>
