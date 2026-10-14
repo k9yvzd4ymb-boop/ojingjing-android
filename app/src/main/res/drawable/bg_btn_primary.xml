@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 主操作按钮：香槟流金微缎光感 + 圆角 18dp + 触控流光水波 -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#40FFFFFF">
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <corners android:radius="18dp" />
+            <solid android:color="#FFFFFF" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="18dp" />
+            <gradient
+                android:angle="0"
+                android:startColor="#DFBA6B"
+                android:centerColor="#ECCF8B"
+                android:endColor="#B88E3E"
+                android:type="linear" />
+            <stroke
+                android:width="1dp"
+                android:color="#FFF5D6" />
+        </shape>
+    </item>
+</ripple>

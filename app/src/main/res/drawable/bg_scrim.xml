@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  【熏黑羽化天鹅绒遮罩】
+  顶部加权暗场确保标题清晰，中部通透空灵展现原画月夜庭院，底部深曜石沉浸托起流金按钮与卡片
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:startColor="#B3070A0E"
+        android:centerColor="#33070A0E"
+        android:endColor="#E6070A0E"
+        android:centerY="0.42"
+        android:type="linear" />
+</shape>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 【月曜流金 · 钛晶冷曜】高级奢雅色盘（告别蓝紫，拥抱黑金与月夜冷曜） -->
+
+    <!-- 香槟流金（品牌主色与操作按钮：源自原画月夜庭院石柱上的暖光古灯） -->
+    <color name="gold_primary">#DFBA6B</color>
+    <color name="gold_light">#F5E5BF</color>
+    <color name="gold_dark">#B88E3E</color>
+    <color name="gold_deep">#785B20</color>
+    <color name="gold_glow">#40DFBA6B</color>
+    <color name="gold_subtle">#1ADFBA6B</color>
+
+    <!-- 兼容别名：替代原版 brand_blue 系列 -->
+    <color name="brand_blue">#DFBA6B</color>
+    <color name="brand_blue_dark">#B88E3E</color>
+    <color name="brand_blue_deep">#F5E5BF</color>
+    <color name="brand_light">#221C13</color>
+
+    <!-- 极夜黑曜石与板岩暗调底色 -->
+    <color name="screen_top">#0B0F15</color>
+    <color name="screen_mid">#11161F</color>
+    <color name="screen_bottom">#070A0E</color>
+
+    <!-- 钛晶冷淬毛玻璃质感 -->
+    <color name="glass_stroke">#33DFBA6B</color>
+    <color name="glass_stroke_subtle">#1FFFFFFF</color>
+    <color name="glass_fill">#B3121822</color>
+    <color name="field_stroke">#2EDFBA6B</color>
+    <color name="field_fill">#800A0D13</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="surface">#131922</color>
+    <color name="surface_card">#18202C</color>
+    <color name="bg">#090D12</color>
+    <color name="divider">#1F2937</color>
+
+    <!-- 文字排版系统 -->
+    <color name="ink">#F3F5F8</color>           <!-- 一级主文字：月白冷玉 -->
+    <color name="ink_muted">#9AA8B8</color>     <!-- 二级文字：钛银质感 -->
+    <color name="ink_dark">#10151C</color>      <!-- 按钮高对比反色文字 -->
+    <color name="hint">#5C6978</color>          <!-- 占位提示灰 -->
+    <color name="danger">#F87171</color>        <!-- 珊瑚朱砂红 -->
+    <color name="status_green">#34D399</color>  <!-- 翡翠流光绿 -->
+</resources>

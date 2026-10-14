@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 「更多设备」图标：黑曜钛金与香槟微金造型 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- 显示器外壳：柔和钛金 -->
+    <path
+        android:fillColor="#8C7343"
+        android:pathData="M8,9 h32 a4,4 0 0 1 4,4 v16 a4,4 0 0 1 -4,4 H8 a4,4 0 0 1 -4,-4 V13 a4,4 0 0 1 4,-4 z" />
+
+    <!-- 屏幕：深曜石晶体 -->
+    <path
+        android:fillColor="#121822"
+        android:pathData="M9,13 h30 a2.5,2.5 0 0 1 2.5,2.5 v9 a2.5,2.5 0 0 1 -2.5,2.5 H9 a2.5,2.5 0 0 1 -2.5,-2.5 v-9 A2.5,2.5 0 0 1 9,13 z" />
+
+    <!-- 省略号：香槟金珍珠微珠 -->
+    <path
+        android:fillColor="#DFBA6B"
+        android:pathData="M15,17.5 a2.2,2.2 0 1 0 0.01,0 z" />
+    <path
+        android:fillColor="#DFBA6B"
+        android:pathData="M24,17.5 a2.2,2.2 0 1 0 0.01,0 z" />
+    <path
+        android:fillColor="#DFBA6B"
+        android:pathData="M33,17.5 a2.2,2.2 0 1 0 0.01,0 z" />
+
+    <!-- 支架：金铜合金 -->
+    <path
+        android:fillColor="#8C7343"
+        android:pathData="M21,33 h6 a1,1 0 0 1 1,1 v3 h-8 v-3 a1,1 0 0 1 1,-1 z" />
+    <path
+        android:fillColor="#6B562F"
+        android:pathData="M14,37 h20 a3,3 0 0 1 3,3 v1 H11 v-1 a3,3 0 0 1 3,-3 z" />
+</vector>

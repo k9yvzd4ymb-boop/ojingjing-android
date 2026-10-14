@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">哦鲸鲸</string>
+    <string name="landing_title">哦鲸鲸</string>
+    <string name="landing_subtitle">扫码连上电脑里的 DSH。手机上是同一套界面，活还是电脑在干。</string>
+    <string name="btn_scan">扫码连接</string>
+    <string name="btn_manual">输入链接</string>
+    <string name="history_title">设备</string>
+    <string name="history_empty">还没有设备。扫码或输入链接连接一次，就会出现在这里。</string>
+
+    <string name="manual_title">输入连接地址</string>
+    <string name="manual_desc">粘贴电脑 DSH「远程访问」面板里的配对链接，或直接填固定域名。</string>
+    <string name="manual_hint">粘贴完整地址，例如\nhttps://xxxx.dsh-market.com/pair-accept?pair=xxxx</string>
+    <string name="manual_hint_short">https://xxxx.dsh-market.com/pair-accept?pair=…</string>
+    <string name="btn_paste">粘贴</string>
+    <string name="clipboard_empty">剪贴板里没有可用的文本</string>
+    <string name="btn_connect">连接</string>
+    <string name="btn_cancel">取消</string>
+    <string name="btn_delete">删除</string>
+    <string name="btn_save">保存</string>
+    <string name="btn_close">关闭</string>
+    <string name="btn_rename">重命名</string>
+    <string name="btn_ok">知道了</string>
+    <string name="btn_forget">删除这台设备</string>
+    <string name="forgot">已删除，请重新扫码连接</string>
+
+    <string name="notice_title">提示</string>
+    <string name="prune_notice">已自动清理 %1$d 台失效设备（超过 30 天未连接）。</string>
+
+    <string name="name_default">我的电脑</string>
+    <string name="name_unnamed">未命名电脑</string>
+
+    <string name="device_more">更多</string>
+    <string name="device_all_title">全部设备</string>
+    <string name="device_all_desc">点一台查看详情并连接。</string>
+
+    <string name="rename_title">给这台电脑起个名字</string>
+    <string name="rename_hint">例如：书房台式机</string>
+
+    <string name="detail_expire">链接有效期</string>
+    <string name="detail_last">上次使用</string>
+    <string name="detail_hint">* 按插件「30 天空闲失效」规则估算；只要偶尔连一次就会自动续期。</string>
+    <string name="detail_days">约 %1$d 天</string>
+    <string name="detail_expired">已过期，请重新扫码</string>
+    <string name="detail_onetime">一次性配对链接（已用过即失效）</string>
+
+    <string name="scan_hint">扫码前先在电脑 DSH 里点「远程访问」生成二维码</string>
+    <string name="scan_title">扫码连接</string>
+    <string name="reconnect_title">连接已断开</string>
+    <string name="reconnect_desc">正在自动重连。请确认电脑开着，且 DSH 的「远程访问」处于开启状态。</string>
+    <string name="btn_retry">立即重试</string>
+    <string name="btn_back_home">返回首页</string>
+    <string name="notif_channel_name">保持连接</string>
+    <string name="notif_title">哦鲸鲸 保持连接中</string>
+    <string name="notif_text">正在保持连接</string>
+    <string name="keepalive_toggle">后台保持连接</string>
+    <string name="invalid_url">地址不完整，需要 http/https 开头并包含主机名</string>
+    <string name="web_loading">正在连接…</string>
+    <string name="deleted">已删除</string>
+</resources>

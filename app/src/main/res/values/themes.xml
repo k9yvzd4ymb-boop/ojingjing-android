@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 【月曜流金 · 钛晶冷曜】主题设计：深色黑曜为底，香槟流金点睛 -->
+    <style name="Theme.OJingJing" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/gold_primary</item>
+        <item name="colorOnPrimary">@color/ink_dark</item>
+        <item name="colorPrimaryContainer">@color/gold_deep</item>
+        <item name="colorOnPrimaryContainer">@color/gold_light</item>
+        <item name="android:colorBackground">@color/screen_bottom</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/ink</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:textColorHint">@color/hint</item>
+    </style>
+
+    <!-- 连接页：全屏沉浸，网页铺满 -->
+    <style name="Theme.OJingJing.Fullscreen" parent="Theme.OJingJing">
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- 浮层弹窗：透明窗口；进出场动画由代码控制 -->
+    <style name="Theme.OJingJing.GlassDialog" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.65</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <!--
+      按钮统一用 AppCompatTextView 而不是 Button，避开 Material3 实色覆盖问题
+    -->
+    <style name="Widget.OJingJing.PrimaryButton" parent="">
+        <item name="android:layout_height">54dp</item>
+        <item name="android:background">@drawable/bg_btn_primary</item>
+        <item name="android:textColor">@color/ink_dark</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <style name="Widget.OJingJing.GlassButton" parent="">
+        <item name="android:layout_height">52dp</item>
+        <item name="android:background">@drawable/bg_btn_glass</item>
+        <item name="android:textColor">@color/gold_light</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <!-- 纯文字操作 -->
+    <style name="Widget.OJingJing.GhostButton" parent="">
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:textColor">@color/ink_muted</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+    </style>
+
+    <!-- 输入框内的小按钮（粘贴） -->
+    <style name="Widget.OJingJing.ChipButton" parent="">
+        <item name="android:layout_height">34dp</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:textColor">@color/gold_primary</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+    </style>
+
+    <style name="TextAppearance.OJingJing.SectionLabel" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:textColor">@color/gold_primary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+</resources>

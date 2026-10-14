@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 页面底色：极夜黑曜石与冷钛板岩深邃渐变 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="270"
+        android:startColor="#0F141D"
+        android:centerColor="#0B0F15"
+        android:endColor="#06090D"
+        android:type="linear" />
+</shape>

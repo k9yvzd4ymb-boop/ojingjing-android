@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设备超过 4 台时，2x2 网格下方的整条「更多」按钮 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="54dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginEnd="5dp"
+    android:background="@drawable/bg_glass_tile"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ic_more" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:text="@string/device_all_title"
+        android:textColor="@color/brand_blue_deep"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+</LinearLayout>
