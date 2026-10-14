@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">哦鲸鲸</string>
+    <string name="app_name">哦鲸鲸 · 流金版</string>
     <string name="landing_title">哦鲸鲸</string>
     <string name="landing_subtitle">扫码连上电脑里的 DSH。手机上是同一套界面，活还是电脑在干。</string>
     <string name="btn_scan">扫码连接</string>
     <string name="btn_manual">输入链接</string>
-    <string name="history_title">设备</string>
+    <string name="history_title">我的设备工坊</string>
     <string name="history_empty">还没有设备。扫码或输入链接连接一次，就会出现在这里。</string>
 
     <string name="manual_title">输入连接地址</string>

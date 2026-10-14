@@ -9,11 +9,11 @@ android {
     compileSdkMinor = 0
 
     defaultConfig {
-        applicationId = "com.jingjing.remote"
+        applicationId = "com.jingjing.remote.lux"
         minSdk = 24
         targetSdk = 37
-        versionCode = 11
-        versionName = "1.5.4"
+        versionCode = 20
+        versionName = "2.0.0"
     }
 
     signingConfigs {

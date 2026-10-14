@@ -32,12 +32,12 @@ jobs:
       - name: Verify APK
         run: |
           ls -la app/build/outputs/apk/release/
-          cp app/build/outputs/apk/release/*.apk ./OJingJing-Release.apk
-          echo "✅ APK Created Successfully: $(du -sh OJingJing-Release.apk | cut -f1)"
+          cp app/build/outputs/apk/release/*.apk ./OJingJing-Lux-v2.0.apk
+          echo "✅ APK Created Successfully: $(du -sh OJingJing-Lux-v2.0.apk | cut -f1)"
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: OJingJing-Release-APK
-          path: ./OJingJing-Release.apk
+          name: OJingJing-Lux-v2.0-APK
+          path: ./OJingJing-Lux-v2.0.apk
           retention-days: 30

@@ -20,10 +20,10 @@ import androidx.core.content.ContextCompat
 class KeepAliveService : Service() {
 
     companion object {
-        private const val CHANNEL_ID = "ojingjing_keepalive"
+        private const val CHANNEL_ID = "ojingjing_lux_keepalive"
         private const val NOTIF_ID = 1001
         const val EXTRA_LABEL = "label"
-        const val ACTION_STOP = "com.jingjing.remote.STOP"
+        const val ACTION_STOP = "com.jingjing.remote.lux.STOP"
 
         fun ensureChannel(ctx: Context) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return

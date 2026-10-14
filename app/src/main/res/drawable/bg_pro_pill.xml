@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PRO 金色质感角标 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="6dp" />
+    <gradient
+        android:angle="0"
+        android:startColor="#DFBA6B"
+        android:endColor="#B88E3E"
+        android:type="linear" />
+</shape>

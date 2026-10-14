@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/screen_bottom">
 
-    <!-- 背景图：代码里会叠加高斯模糊（Android 12+） -->
+    <!-- 背景原画：全屏铺满（Android 12+ 叠加精细高斯微模糊） -->
     <ImageView
         android:id="@+id/bgImage"
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/home_bg" />
 
-    <!-- 毛玻璃罩：保证文字可读，同时保留画面 -->
+    <!-- 熏黑羽化天鹅绒遮罩：中部通透展现少女原画，顶部与底部沉浸暗场 -->
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,72 +30,349 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingStart="24dp"
-            android:paddingEnd="24dp"
-            android:paddingTop="26dp"
-            android:paddingBottom="28dp">
+            android:paddingStart="22dp"
+            android:paddingEnd="22dp"
+            android:paddingTop="36dp"
+            android:paddingBottom="42dp">
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/app_logo" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="sans-serif-black"
-                android:letterSpacing="-0.01"
-                android:text="@string/landing_title"
-                android:textColor="@color/ink"
-                android:textSize="28sp" />
-
-            <TextView
+            <!-- 1. 顶部状态胶囊（灵动微光指示） -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:lineSpacingExtra="5dp"
-                android:text="@string/landing_subtitle"
-                android:textColor="@color/ink_muted"
-                android:textSize="13sp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/btnScan"
-                style="@style/Widget.OJingJing.PrimaryButton"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_status_capsule"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="14dp">
+
+                    <View
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:background="@drawable/bg_pro_pill"
+                        android:backgroundTint="@color/status_green" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="7dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="引擎就绪 · DSH 互联"
+                        android:textColor="@color/gold_light"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_status_capsule"
+                    android:gravity="center"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:text="PRO EDITION"
+                    android:textColor="@color/gold_primary"
+                    android:textSize="10sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- 2. 主视觉品牌区（横向排版，优雅通透） -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/bg_btn_primary"
-                android:text="@string/btn_scan"
-                android:textColor="@color/ink_dark" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/btnManual"
-                style="@style/Widget.OJingJing.GlassButton"
+                <FrameLayout
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:background="@drawable/bg_cockpit_secondary"
+                    android:padding="6dp">
+
+                    <ImageView
+                        android:id="@+id/logo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/app_logo" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:letterSpacing="-0.02"
+                            android:text="@string/landing_title"
+                            android:textColor="@color/ink"
+                            android:textSize="26sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_pro_pill"
+                            android:paddingStart="6dp"
+                            android:paddingTop="2dp"
+                            android:paddingEnd="6dp"
+                            android:paddingBottom="2dp"
+                            android:text="流金版"
+                            android:textColor="@color/ink_dark"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="DeepSeek Harness 远程控制中枢"
+                        android:textColor="@color/gold_primary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="全屏触控 · 无损桌面同步 · 本地安全凭据"
+                        android:textColor="@color/ink_muted"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 3. 非对称双翼交互控制台（突破死板堆叠按钮） -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/bg_btn_glass"
-                android:text="@string/btn_manual"
-                android:textColor="@color/gold_light" />
+                android:layout_height="146dp"
+                android:layout_marginTop="28dp"
+                android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
+                <!-- 左侧主翼：扫码配对核心卡片 (62% 权重) -->
+                <LinearLayout
+                    android:id="@+id/btnScan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.6"
+                    android:background="@drawable/bg_cockpit_primary"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:paddingStart="18dp"
+                    android:paddingTop="18dp"
+                    android:paddingEnd="18dp"
+                    android:paddingBottom="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_scan_reticle" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_status_capsule"
+                            android:paddingStart="8dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="8dp"
+                            android:paddingBottom="3dp"
+                            android:text="极速配对"
+                            android:textColor="@color/ink_dark"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/btn_scan"
+                        android:textColor="@color/ink_dark"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="对准桌面端 DSH 码"
+                        android:textColor="@color/ink_dark"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <!-- 右侧双副翼：手动输入与辅助中枢 (38% 权重) -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- 上格：手动输入链接 -->
+                    <LinearLayout
+                        android:id="@+id/btnManual"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_cockpit_secondary"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="12dp">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_link" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@string/btn_manual"
+                            android:textColor="@color/gold_light"
+                            android:textSize="13sp" />
+
+                        <ImageView
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_chevron_right" />
+                    </LinearLayout>
+
+                    <!-- 下格：常驻安全保活信息 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_cockpit_secondary"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="12dp">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_paste" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="后台守护中"
+                            android:textColor="@color/ink_muted"
+                            android:textSize="12sp" />
+
+                        <View
+                            android:layout_width="6dp"
+                            android:layout_height="6dp"
+                            android:background="@drawable/bg_pro_pill"
+                            android:backgroundTint="@color/status_green" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 4. 已配对设备栏目 Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="34dp"
-                android:text="@string/history_title"
-                android:textAppearance="@style/TextAppearance.OJingJing.SectionLabel" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="14dp"
+                    android:background="@drawable/bg_pro_pill" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/history_title"
+                    android:textColor="@color/ink"
+                    android:textSize="14sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="30天长效空闲规则"
+                    android:textColor="@color/gold_primary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- 5. 设备空态卡片（艺术虚线曜石框） -->
             <TextView
                 android:id="@+id/tvEmpty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:lineSpacingExtra="4dp"
-                android:text="@string/history_empty"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_empty_card"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:paddingStart="24dp"
+                android:paddingTop="28dp"
+                android:paddingEnd="24dp"
+                android:paddingBottom="28dp"
+                android:text="暂无配对设备\n点击上方「扫码连接」或「输入链接」，自动存入设备工坊"
                 android:textColor="@color/ink_muted"
                 android:textSize="13sp" />
 
+            <!-- 6. 设备网格容器 -->
             <LinearLayout
                 android:id="@+id/historyContainer"
                 android:layout_width="match_parent"
